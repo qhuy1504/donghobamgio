@@ -1,60 +1,96 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
+}
+.app-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.calculator {
+  background-color: cadetblue;
+  width: 100%;
+  max-width: 375px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.display {
+  min-height: 200px;
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white;
+  text-align: right;
+  flex: 1 1 0%;
 }
 
-.watch {
-    position: relative;
-    text-align: center;
-    background-color: #6b1c3f;
-    width: 800px;
-    height: 300px;
-    padding: 1px 32px;
-    margin: 0 auto;
-    margin-top: 100px;
-    color: seashell;
-    border-radius: 5px;
+.display .input {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.display .output {
+  font-size: 50px;
+  font-weight: 700;
+  min-width: 100%;
+  overflow: auto;
+}
+.display .operator {
+  color: rgb(236, 47, 47);
+}
+.display .brackets,
+.display .percent {
+  color: #333;
+}
+.keys {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.2);
+}
+.keys .key {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  flex: 1 1 0%;
+  height: 0;
+  padding-top: 100%;
+  background-color: antiquewhite;
+  border-radius: 16px;
+  transition: 0.2s;
+  user-select: none;
+}
+.keys .key span {
+  position: absolute;
+  font-weight: 900;
+  font-size: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.time {
-    text-align: center;
-    font-size: 100px;
-    font-weight: 300;
-    margin-top: 70px;
-    margin-bottom: 16px;
+.keys .key:hover {
+  opacity: 0.5;
+  transition: all 0.2s linear;
 }
-
-.cotrols {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.keys .key.operator span {
+  color: rgb(236, 47, 47);
 }
-
-.controls button {
-    appearance: none;
-    background: none;
-    border: none;
-    outline: none;
-    user-select: none;
-    color: seashell;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin: -1px 10px;
-    padding: 12px 60px;
-    border-radius: 5px;
-    transition: 0.4s linear;
-    font-size: 15px;
-}
-
-button:hover {
-    opacity: 0.7;
-    font-weight: bold;
-}
-
-button:active {
-    background-color: darkblue;
+.keys .key.action span {
+  color: rgb(0, 78, 150);
+  font-weight: 800;
 }
